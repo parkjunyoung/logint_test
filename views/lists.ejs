@@ -1,0 +1,28 @@
+<% include ./header.ejs %>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>제목</th>
+            <th>내용</th>
+            <th>삭제</th>
+        </tr>
+        <% products.forEach(function(product){ %>
+        <tr>
+            <td>
+                <a href="/detail/<%=product.id%>">
+                    <%=product.name%>
+                </a>
+            </td>
+            <td>
+                <%=product.description%>
+            </td>
+            <td>
+                <a href="/delete/<%=product.id%>" 
+                class="btn btn-danger">삭제</a>
+            </td>
+        </tr>
+        <%});%>
+    </table>
+
+    <a href="/write" class="btn btn-default">작성하기</a>
+
+<% include ./footer.ejs %>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Node.js 쇼핑몰</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container" style="padding-top: 10px;">
+        <nav class="navbar navbar-inverse"> 
+            <div class="container-fluid"> 
+                <div class="navbar-header">
+                    <!-- 오른쪽 메뉴바 -->
+                    <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a href="/" class="navbar-brand">Home</a>
+                </div> 
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                    <ul class="nav navbar-nav">
+                        <% if(isLogin){%>
+                            <li><a href="/accounts/logout" onclick="return confirm('로그아웃 하시겠습니까?')" id="logout">로그아웃</a></li>
+                        <%}else{%>
+                            <li><a href="/accounts/join" id="join">회원가입</a></li> 
+                            <li><a href="/accounts/login" id="login">로그인</a></li>  
+                        <%}%>
+                    </ul>
+                    <% if(isLogin){%>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a>로그인 ID : <span><%=userData.username%></span></a>
+                            </li> 
+                        </ul>
+                    <%}%>
+                </div> 
+            </div> 
+        </nav>
